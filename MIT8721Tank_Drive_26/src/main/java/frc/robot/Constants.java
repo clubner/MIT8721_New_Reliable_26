@@ -11,37 +11,51 @@ package frc.robot;
  */
 public final class Constants {
   //Class for button bindings, ports for controller, constants for deadband, etc.
-  public static class kControls {
-    public static final int CONTROLLER_USB_PORT_ID = 0; // USB port for controller
-    
-    // Controller input axes (placeholders for now)
-    public static final int LEFT_VERTICAL_JOYSTICK_AXIS = 1; //Forward & Back
-    public static final int RIGHT_VERTICAL_JOYSTICK_AXIS = 2; //Turning
-    public static final int RIGHT_HORIZONTAL_JOYSTICK_AXIS = 3; //Turning
-    // Buttons (placeholders, probably won't use all of them)
-    public static final int X_BUTTON = 4;
-    public static final int Y_BUTTON = 5;
-    public static final int A_BUTTON = 6;
-    public static final int B_BUTTON = 7;
+  public static final class kControls 
+  {
+    //Connects controller to roborio 2.0
+    public static final int DRIVER_CONTROLLER_PORT = 0;
+    //Different port for alternative control method, we don't anticipate using this
+    //public static final int OPERATOR_CONTROLLER_PORT = 1;
   }
-  //Class for CAN IDs
-  public static class kCan {
-    public static final int LEFT_DRIVE_MOTOR_ID = 1;
-    public static final int RIGHT_DRIVE_MOTOR_ID = 2;
-    public static final int INTAKE_MOTOR_ID = 3;
-    public static final int SHOOTER_MOTOR_ID = 4;
+  //Class for CAN/motor IDs
+  public static final class kCan 
+  {
+    //Driving Motor IDs
+    public static final int LEFT_LEADER_ID = 1;
+    public static final int LEFT_FOLLOWER_ID = 2;
+    public static final int RIGHT_LEADER_ID = 3;
+    public static final int RIGHT_FOLLOWER_ID = 4;
+    //Launcher Motor IDs
+    public static final int FEEDER_MOTOR_ID = 6;
+    public static final int INTAKE_LAUNCHER_MOTOR_ID = 5;
   }
 
   //Class for drivetrain constants
-  public static class kDrivetrain{
-    public static final boolean DRIVE_INVERT_LEFT = false; //Inversion of left drivetrain motors
-    public static final boolean DRIVE_INVERT_RIGHT = true; //Inversion of right drivetrain motors
+  public static final class kDrivetrain
+  {
+    //60 amps max for drive motors
+    public static final int DRIVE_MOTOR_CURRENT_LIMIT = 60;
+    //Percent controller input is slowed down when translated to motor motion
+    public static final double DRIVE_SCALING = 0.7;
+    public static final double ROTATION_SCALING = 0.8;
   }
 
   //Class for subsystem constants
 
-  public static class kSubsystem {
-    public static final boolean INTAKE_MOTOR_INVERTED = false; //Inversion of intake motor
-    public static final boolean SHOOTER_MOTOR_INVERTED = false; //Inversion of shooter motor
+  public static final class kFuel 
+  {
+    //60 amps max for launch motors
+    public static final int FEEDER_MOTOR_CURRENT_LIMIT = 60;
+    public static final int LAUNCHER_MOTOR_CURRENT_LIMIT = 60;
+    //More voltage control, probably should change to match our bot
+    //
+    public static final double INTAKING_FEEDER_VOLTAGE = -12;
+    public static final double INTAKING_INTAKE_VOLTAGE = 10;
+    public static final double LAUNCHING_FEEDER_VOLTAGE = 9;
+    public static final double LAUNCHING_LAUNCHER_VOLTAGE = 10.6;
+    public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
+    
+    public static final double SPIN_UP_SECONDS = 1;
   }
 }
