@@ -49,13 +49,14 @@ public final class Constants {
     public static final int FEEDER_MOTOR_CURRENT_LIMIT = 60;
     public static final int LAUNCHER_MOTOR_CURRENT_LIMIT = 60;
     //More voltage control, probably should change to match our bot
-    //
+    //look up "How to determine voltage drop"
+    //goal: calculate power demand of device while also not exceeding breaker capacity
     public static final double INTAKING_FEEDER_VOLTAGE = -12;
     public static final double INTAKING_INTAKE_VOLTAGE = 10;
     public static final double LAUNCHING_FEEDER_VOLTAGE = 9;
     public static final double LAUNCHING_LAUNCHER_VOLTAGE = 10.6;
     public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
-    
+    // Launcher spin up time in seconds
     public static final double SPIN_UP_SECONDS = 1;
   }
 }
