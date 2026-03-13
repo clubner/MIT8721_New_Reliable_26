@@ -38,18 +38,21 @@ public class RobotContainer {
       OPERATOR_CONTROLLER_PORT);
 
   // The autonomous chooser
+  //===TO DO===
   private final SendableChooser<Command> autoChooser = new SendableChooser<>();
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
+  //Constructor
   public RobotContainer() {
     configureBindings();
 
     // Set the options to show up in the Dashboard for selecting auto modes. If you
     // add additional auto modes you can add additional lines here with
     // autoChooser.addOption
-    autoChooser.setDefaultOption("Autonomous", new ExampleAuto(driveSubsystem, fuelSubsystem));
+    //===TO DO===
+    autoChooser.setDefaultOption("Default Autonomous", new ExampleAuto(driveSubsystem, fuelSubsystem));
   }
 
   /**
@@ -63,16 +66,17 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
    * joysticks}.
    */
+  
   private void configureBindings() {
 
     // While the left bumper on operator controller is held, intake Fuel
-    operatorController.leftBumper().whileTrue(new Intake(fuelSubsystem));
+    operatorController.b().whileTrue(new Intake(fuelSubsystem));
     // While the right bumper on the operator controller is held, spin up for 1
     // second, then launch fuel. When the button is released, stop.
-    operatorController.rightBumper().whileTrue(new LaunchSequence(fuelSubsystem));
+    operatorController.rightTrigger().whileTrue(new LaunchSequence(fuelSubsystem));
     // While the A button is held on the operator controller, eject fuel back out
-    // the intake
-    operatorController.a().whileTrue(new Eject(fuelSubsystem));
+    // the intake actually
+    operatorController.rightBumper().whileTrue(new Eject(fuelSubsystem));
 
     // Set the default command for the drive subsystem to the command provided by
     // factory with the values provided by the joystick axes on the driver
@@ -83,12 +87,14 @@ public class RobotContainer {
 
     fuelSubsystem.setDefaultCommand(fuelSubsystem.run(() -> fuelSubsystem.stop()));
   }
+  
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *
    * @return the command to run in autonomous
    */
+  //===TO DO===
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
     return autoChooser.getSelected();

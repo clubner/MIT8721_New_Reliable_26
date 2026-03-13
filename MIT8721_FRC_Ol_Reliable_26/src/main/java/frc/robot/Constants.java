@@ -17,13 +17,14 @@ package frc.robot;
 public final class Constants {
   public static final class DriveConstants {
     // Motor controller IDs for drivetrain motors
-    public static final int LEFT_LEADER_ID = 1;
-    public static final int LEFT_FOLLOWER_ID = 2;
-    public static final int RIGHT_LEADER_ID = 3;
-    public static final int RIGHT_FOLLOWER_ID = 4;
+    public static final int LEFT_LEADER_ID = 4;
+    public static final int LEFT_FOLLOWER_ID = 1;
+    public static final int RIGHT_LEADER_ID = 2;
+    public static final int RIGHT_FOLLOWER_ID = 3;
 
     // Current limit for drivetrain motors. 60A is a reasonable maximum to reduce
     // likelihood of tripping breakers or damaging CIM motors
+    public static final boolean DRIVE_INVERSION_SETTING = true;
     public static final int DRIVE_MOTOR_CURRENT_LIMIT = 60;
   }
 
@@ -31,19 +32,40 @@ public final class Constants {
     // Motor controller IDs for Fuel Mechanism motors
     public static final int FEEDER_MOTOR_ID = 6;
     public static final int INTAKE_LAUNCHER_MOTOR_ID = 5;
+    public static final boolean FEEDER_INVERSION_SETTING = false;
+    public static final boolean LAUNCHER_INTAKE_INVERSION_SETTING = false;
 
     // Current limit and nominal voltage for fuel mechanism motors.
     public static final int FEEDER_MOTOR_CURRENT_LIMIT = 60;
     public static final int LAUNCHER_MOTOR_CURRENT_LIMIT = 60;
+    //PID settings for launcher/intake
+    
+    public static double LAUNCHER_INTAKE_SET_POINT = 0;
+    public static double LAUNCHER_INTAKE_P = .3;
+    public static double LAUNCHER_INTAKE_I = .02;
+    public static double LAUNCHER_INTAKE_D = 0;
+    public static double LAUNCHER_INTAKE_FF = 0;
+
+    //PID settings for feeder
+    public static double FEEDER_SET_POINT = 0;
+    public static double FEEDER_P = .3;
+    public static double FEEDER_I = .02;
+    public static double FEEDER_D = 0;
+    public static double FEEDER_FF = 0;
+    
+
+
+    //public static double 
+
 
     // Voltage values for various fuel operations. These values may need to be tuned
     // based on exact robot construction.
     // See the Software Guide for tuning information
-    public static final double INTAKING_FEEDER_VOLTAGE = -12;
-    public static final double INTAKING_INTAKE_VOLTAGE = 10;
+    public static final double INTAKING_FEEDER_VOLTAGE = -10; //was -12
+    public static final double INTAKING_INTAKE_VOLTAGE = -10;
     public static final double LAUNCHING_FEEDER_VOLTAGE = 9;
-    public static final double LAUNCHING_LAUNCHER_VOLTAGE = 10.6;
-    public static final double SPIN_UP_FEEDER_VOLTAGE = -6;
+    public static final double LAUNCHING_LAUNCHER_VOLTAGE = -10.6;
+    public static final double SPIN_UP_FEEDER_VOLTAGE = 6;//was -6
     public static final double SPIN_UP_SECONDS = 1;
   }
 
@@ -51,11 +73,11 @@ public final class Constants {
     // Port constants for driver and operator controllers. These should match the
     // values in the Joystick tab of the Driver Station software
     public static final int DRIVER_CONTROLLER_PORT = 0;
-    public static final int OPERATOR_CONTROLLER_PORT = 1;
+    public static final int OPERATOR_CONTROLLER_PORT = 0;
 
     // This value is multiplied by the joystick value when rotating the robot to
-    // help avoid turning too fast and beign difficult to control
+    // help avoid turning too fast and being difficult to control
     public static final double DRIVE_SCALING = .7;
-    public static final double ROTATION_SCALING = .8;
+    public static final double ROTATION_SCALING = .4;
   }
 }

@@ -62,7 +62,7 @@ public class Drivetrain extends SubsystemBase {
     rightLeader.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     // Set config to inverted and then apply to left leader. Set Left side inverted
     // so that postive values drive both sides forward
-    config.inverted(true);
+    config.inverted(DRIVE_INVERSION_SETTING);
     leftLeader.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
   }
 
